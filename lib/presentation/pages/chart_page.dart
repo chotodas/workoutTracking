@@ -48,7 +48,7 @@ class _ChartPageState extends State<ChartPage>
                         return AnimatedBar(
                           value: workout.value,
                           controller: _controller,
-                          label: workout.name, // Label for each bar
+                          label: workout.name,
                         );
                       }).toList(),
                     ),
@@ -93,14 +93,13 @@ class AnimatedBar extends StatelessWidget {
             // Animate the height of the bar based on the workout value
             return Container(
               width: 30,
-              height:
-                  200 * (controller!.value * (value / 100)), // Dynamic height
+              height: 200 * (controller!.value * (value / 100)),
               color: Colors.blue,
               alignment: Alignment.bottomCenter,
             );
           },
         ),
-        SizedBox(height: 8), // Spacing between the bar and the label
+        SizedBox(height: 8),
         Text(label, style: TextStyle(fontSize: 12)),
       ],
     );

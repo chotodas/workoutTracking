@@ -1,67 +1,10 @@
-// // presentation/providers/workout_provider.dart
-// import 'package:flutter/material.dart';
-// import 'package:practice_workout/data/models/workout_model.dart';
-// import 'package:practice_workout/utils/date_utils.dart'; // Import Date extension
-
-// class WorkoutProvider with ChangeNotifier {
-//   List<Workout> _workouts = [];
-//   List<Workout> _filteredWorkouts = [];
-
-//   List<Workout> get workouts => _workouts;
-//   List<Workout> get filteredWorkouts => _filteredWorkouts;
-
-//   // Modify: Add a method to initialize some dummy workouts
-//   void loadInitialWorkouts() {
-//     _workouts = [
-//       Workout(id: 1, name: 'Push-ups', date: DateTime.now()),
-//       Workout(id: 2, name: 'Sit-ups', date: DateTime.now()),
-//       // Add more workouts
-//     ];
-//     _filteredWorkouts = _workouts;
-//     notifyListeners();
-//   }
-
-//   // Mark workout as done based on the workout ID
-//   void markAsDone(int workoutId) {
-//     final workout = _workouts.firstWhere((w) => w.id == workoutId);
-//     workout.isDone = true;
-//     notifyListeners();
-//   }
-
-//   // Set the workout value (between 0 and 100) based on the workout ID
-//   void setWorkoutValue(int workoutId, int value) {
-//     final workout = _workouts.firstWhere((w) => w.id == workoutId);
-//     workout.value = value;
-//     notifyListeners();
-//   }
-
-//   // Filter workouts by the selected date using the custom isSameDay method
-//   void filterWorkoutsByDate(DateTime date) {
-//     _filteredWorkouts = _workouts.where((w) => w.date.isSameDay(date)).toList();
-//     notifyListeners();
-//   }
-
-//   // Show all workouts without any date filtering
-//   void showAllWorkouts() {
-//     _filteredWorkouts = _workouts;
-//     notifyListeners();
-//   }
-
-//   // Modify: Reset workout list
-//   void resetAllWorkouts() {
-//     for (var workout in _workouts) {
-//       //workout.reset();
-//     }
-//     notifyListeners();
-//   }
-// }
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:practice_workout/data/models/workout_model.dart';
-import 'package:practice_workout/utils/date_utils.dart'; // Import Date extension
+import 'package:practice_workout/utils/date_utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert'; // For JSON encoding/decoding
+import 'dart:convert';
 
 class WorkoutProvider with ChangeNotifier {
   List<Workout> _workouts = [];
@@ -85,7 +28,6 @@ class WorkoutProvider with ChangeNotifier {
         Workout(id: 2, name: 'Sit-ups', date: DateTime.now()),
         Workout(id: 3, name: 'Squats', date: DateTime.now()),
         Workout(id: 4, name: 'Plank', date: DateTime.now()),
-        // Add more workouts if SharedPreferences is empty
       ];
     }
 

@@ -16,16 +16,13 @@ class _HomePageState extends State<HomePage> {
     final workoutProvider =
         Provider.of<WorkoutProvider>(context, listen: false);
 
-    // Load workouts when the screen opens
     workoutProvider.loadInitialWorkouts();
   }
 
-  // This function will refresh the state when coming back from another screen
   Future<void> _navigateToWorkoutList(BuildContext context) async {
     final workoutProvider =
         Provider.of<WorkoutProvider>(context, listen: false);
 
-    // Navigate to the WorkoutListPage and wait for the result
     final result = await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => WorkoutListPage()),

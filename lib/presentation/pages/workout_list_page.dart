@@ -25,10 +25,8 @@ class _WorkoutListPageState extends State<WorkoutListPage>
       appBar: AppBar(
         title: Text('Workout List'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios,
-              color: Colors.black), // Custom icon for back button
+          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () {
-            // Action when back button is pressed (e.g., go back to the previous screen)
             Navigator.of(context).pop(true);
           },
         ),
